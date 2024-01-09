@@ -9,14 +9,26 @@ class Canvas {
     }
 
     public double totalArea() {
-        return elements.stream().mapToDouble(shape -> shape.getArea()).sum();
+        double totalArea = 0;
+        for (Shape shape : elements) {
+            totalArea += shape.calculateArea();
+        }
+        return totalArea;
     }
 
-    public double totalAreaWithBorder(double borderThickness) {
-        return elements.stream().mapToDouble(shape -> shape.getAreaWithBorder(borderThickness)).sum();
+    public double totalBorderArea() {
+        double totalBorderArea = 0;
+        for (Shape shape : elements) {
+            totalBorderArea += shape.calculateBorderArea();
+        }
+        return totalBorderArea;
     }
 
-    public double totalBorderArea(double borderThickness) {
-        return totalAreaWithBorder(borderThickness) - totalArea();
+    public double totalAreaWithoutBorder(){
+        double totalAreaWithoutBorder = 0;
+        for (Shape shape : elements) {
+            totalAreaWithoutBorder += shape.calculateInnerArea();
+        }
+        return totalAreaWithoutBorder;
     }
 }

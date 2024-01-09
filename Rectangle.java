@@ -1,4 +1,4 @@
-class Rectangle implements Shape {
+class Rectangle extends Shape {
     private double length;
     private double width;
 
@@ -13,12 +13,12 @@ class Rectangle implements Shape {
     }
 
     @Override
-    public double getArea() {
-        return length * width;
+    public double calculateArea() {
+        return length * width + 2 * (length + width) * getBorderThickness();
     }
 
     @Override
-    public double getAreaWithBorder(double borderThickness) {
-        return (length + 2 * borderThickness) * (width + 2 * borderThickness);
+    public double calculateInnerArea() {
+        return length * width;
     }
 }

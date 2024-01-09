@@ -1,4 +1,4 @@
-class Square implements Shape {
+class Square extends Shape {
     private double sideLength;
 
     public Square(double sideLength) {
@@ -11,12 +11,12 @@ class Square implements Shape {
     }
 
     @Override
-    public double getArea() {
-        return sideLength * sideLength;
+    public double calculateArea() {
+        return sideLength * sideLength + 4 * sideLength * getBorderThickness();
     }
 
     @Override
-    public double getAreaWithBorder(double borderThickness) {
-        return (sideLength + 2 * borderThickness) * (sideLength + 2 * borderThickness);
+    public double calculateInnerArea() {
+        return sideLength * sideLength;
     }
 }

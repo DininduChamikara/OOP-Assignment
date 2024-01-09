@@ -1,4 +1,4 @@
-class Circle implements Shape {
+class Circle extends Shape {
     private double radius;
 
     public Circle(double radius) {
@@ -11,12 +11,12 @@ class Circle implements Shape {
     }
 
     @Override
-    public double getArea() {
-        return 3.14 * radius * radius;
+    public double calculateArea() {
+        return Math.PI * radius * radius + 2 * Math.PI * radius * getBorderThickness();
     }
 
     @Override
-    public double getAreaWithBorder(double borderThickness) {
-        return 3.14 * (radius + borderThickness) * (radius + borderThickness);
+    public double calculateInnerArea() {
+        return Math.PI * radius * radius;
     }
 }
